@@ -1,0 +1,13 @@
+body {
+  margin-left:19rem;
+  justify-content: center;
+}
+
+header {
+    font-family: 'Tangerine', serif, bold;
+    margin-left:9rem;
+    text-shadow: 4px 4px 4px #aaa;
+    height: 80px;
+    display: flex;
+    align-items: center;
+}

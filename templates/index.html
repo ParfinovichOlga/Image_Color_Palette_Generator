@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+{% from "bootstrap5/form.html" import render_form %}
+{{ bootstrap.load_css() }}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Image Colour Palette Generator</title>
+    <link
+          href="{{ url_for('static', filename='css/styles.css') }}"
+          rel="stylesheet"
+    />
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Tangerine">
+</head>
+<header class="d-flex flex-wrap">
+        <h1 class="fs-4">Extract Image Colour Palette</h1>
+</header>
+<body>
+  <div class="container px-4" >
+      <div class="row gx-5">
+        <div class="p-5 border bg-light" style="width: 40rem;">
+          <img src={{img}} class="card-img-top" alt="...">
+          <table class="table text-center">
+              <thead>
+                <tr>
+                  <th style="width: 34%;">Color</th>
+                  <th style="width: 22%;">Color Code</th>
+                  <th style="width: 22%;">Percentage</th>
+                </tr>
+              </thead>
+              <tbody>
+              {% for color in colors %}
+                <tr>
+                  <th scope="row" bgcolor={{color[1]}} class="text-start"></th>
+                  <td>{{color[1]}}</td>
+                  <td>{{color[0]}}</td>
+                </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          {{ render_form(form, novalidate=True, button_map={"submit": "secondary"}, form_type='horizontal', horizontal_columns=('sm',3, 6)) }}
+        </div>
+      </div>
+  </div>
+</body>
+</html>

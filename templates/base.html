@@ -1,0 +1,18 @@
+
+<!DOCTYPE html>
+<html lang="en">
+{% from "bootstrap5/form.html" import render_form %}
+{{ bootstrap.load_css() }}
+<head>
+    <meta charset="UTF-8">
+    <title>Image Colour Palette Generator</title>
+    {% block styles %}
+
+    {% endblock %}
+</head>
+<body>
+  {{ render_form(form, novalidate=True, button_map={"submit": "secondary"}, form_type='horizontal', horizontal_columns=('sm',2, 6)) }}
+
+  {% block content %} {% endblock %}
+</body>
+</html>
